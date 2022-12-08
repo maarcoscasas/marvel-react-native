@@ -10,22 +10,16 @@ function Item(props) {
     navigation.navigate("Character", { item });
   };
 
-  console.log(item);
-  // console.log(item.thumbnail.path + "." + item.thumbnail.extension);
-  // console.log(`${item.thumbnail.path}` + "." + `${item.thumbnail.extension}`);
-
   return (
     <View style={styles.item}>
-      <Card style={{ width: "80%" }}>
+      <Card style={{ width: 300 }}>
+        <Card.Cover source={{ uri: `${item.thumbnail.path}` + "." + `${item.thumbnail.extension}` }} />
         <Card.Title title={item.name} />
         <Card.Content>
-          {/* <Title>{item.name}</Title> */}
-          <Text>{item.description}</Text>
+          <Text style={styles.text}>{item.description}</Text>
         </Card.Content>
-
-        <Card.Cover source={{ uri: `${item.thumbnail.path}` + "." + `${item.thumbnail.extension}` }} />
         <Card.Actions>
-          <Button type="solid" title="See more" onPress={() => navegarACharacter(item)} />
+          <Button size="sm" color="secondary" type="clear" title="Ver más" onPress={() => navegarACharacter(item)} />
         </Card.Actions>
       </Card>
     </View>
@@ -35,9 +29,12 @@ function Item(props) {
 const styles = StyleSheet.create({
   item: {
     width: "100%",
-    flex: 1,
     alignItems: "center",
     marginTop: 20,
+  },
+
+  text: {
+    marginBottom: 10,
   },
 });
 

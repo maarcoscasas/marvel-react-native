@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet } from "react-native-web";
 import Item from "../componentes/Item";
 import { FlatList } from "react-native";
 import { apiMarvel } from "../data/apiMarvel";
@@ -30,8 +31,6 @@ function HomeScreen(props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.h1}>Welcome to the official Marvel App</Text>
-
       <View style={styles.listWrapper}>
         <FlatList data={items} keyExtractor={keyExtractor} renderItem={renderItem} style={{ width: "100%" }} />
       </View>
@@ -52,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 20,
+    marginTop: 10,
     borderColor: "black",
     borderStyle: "dotted",
   },
